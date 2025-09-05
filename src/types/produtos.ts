@@ -4,5 +4,5 @@ export interface Produtos {
   descricao: string;
   quantidade: number;
   preco: number;
-  categoria: string;
+  categoria: number;
 }
