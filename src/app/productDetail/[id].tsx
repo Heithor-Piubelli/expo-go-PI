@@ -18,7 +18,7 @@ export default function ProductDetails() {
           <Text style={styles.text}>Categoria: {produto.categoria}</Text>
         </View>
       ) : (
-        <Text style={styles.text}>Produto não encontrado</Text>
+        <Text style={styles.text}>Por favor selecione um produto primeiro</Text>
       )}
     </View>
   );
