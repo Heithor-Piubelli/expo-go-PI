@@ -5,6 +5,8 @@ import React from "react";
 import Header from "../components/header";
 import Entypo from "@expo/vector-icons/Entypo";
 import colors from "../components/header/style";
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+
 
 export default function Layout() {
   return (
@@ -36,6 +38,24 @@ export default function Layout() {
             title: "Produtos",
             drawerIcon: ({ color, size }) => (
               <Entypo name="box" size={28} color="gray" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="vps/vps"
+          options={{
+            title: "VPS",
+            drawerIcon: ({ color, size }) => (
+              <MaterialIcons name="computer" size={28} color="gray" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="web/web"
+          options={{
+            title: "WEB",
+            drawerIcon: ({ color, size }) => (
+              <Entypo name="cloud" size={28} color="gray" />
             ),
           }}
         />
