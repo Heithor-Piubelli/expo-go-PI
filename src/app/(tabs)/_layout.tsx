@@ -1,6 +1,5 @@
 import { Tabs } from "expo-router";
 import Entypo from "@expo/vector-icons/Entypo";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import React from "react";
@@ -13,12 +12,15 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false, //esconde o header
         // tabBarShowLabel: false, //esconde os icones
+
         tabBarActiveTintColor: colors.white, // cor do icone ativo
-        tabBarInactiveTintColor: colors.gray[600], //cor do icone inativo
-        tabBarShowLabel: false,
+        tabBarInactiveTintColor: colors.gray[500], //cor do icone inativo
+        tabBarShowLabel: true,
+
         tabBarStyle: {
           backgroundColor: colors.gray[800],
-          borderTopColor: colors.gray[800],
+          borderTopWidth: 0,
+          height: 60,
           paddingTop: 10,
         },
       }}
@@ -27,23 +29,23 @@ export default function TabLayout() {
         name="home"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Entypo name="home" size={28} color="black" />
+          <Entypo name="home" size={28} color="black" />
           ),
         }}
       />
-      <Tabs.Screen
-        name="index"
-        options={{
-          tabBarIcon: ({ color, size }) => (
-           <FontAwesome5 name="box" size={24} color="black" />
-          ),
-        }}
-      />
+        <Tabs.Screen
+          name="index"
+          options={{
+            tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="box" size={28} color="black" />
+            ),
+          }}
+        />
       <Tabs.Screen
         name="profile"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="people-alt" size={28} color="black" />
+          <MaterialIcons name="people-alt" size={28} color="black" />
           ),
         }}
       />

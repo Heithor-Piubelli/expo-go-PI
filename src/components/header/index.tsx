@@ -4,11 +4,25 @@ import Entypo from '@expo/vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
 import { DrawerActions } from '@react-navigation/native';
 import colors from './style';
+import { useFonts } from '@expo-google-fonts/changa-one/useFonts';
+import { ChangaOne_400Regular } from '@expo-google-fonts/changa-one/400Regular';
+import { ChangaOne_400Regular_Italic } from '@expo-google-fonts/changa-one/400Regular_Italic';
 
 export default function Header() {
   const navigation = useNavigation();
-    return (
-      <View style={styles.container}>
+  
+  let [fontsLoaded] = useFonts({
+    ChangaOne_400Regular, 
+    ChangaOne_400Regular_Italic
+  });
+
+  if (!fontsLoaded) {
+    return null; // Ou um componente de carregamento
+
+  }
+
+  return (
+    <View style={styles.container}>
 
           <TouchableOpacity  onPress={() => {navigation.dispatch(DrawerActions.toggleDrawer());}}>
             <Entypo name="menu" size={40} color="white"/>
@@ -23,20 +37,21 @@ export default function Header() {
     container: {
       flexDirection: 'row',
       alignItems: 'center',
-      paddingTop: 50,
+      paddingTop: 20,
       padding: 10,
-      backgroundColor: 'black',
+      backgroundColor: colors.gray[800],
       justifyContent: 'center', // Centraliza os itens horizontalmente
-      position: 'relative', // Permite posicionar o botão do menu
+      height: 80,
     },
     title: {
       color: colors.white,
-      fontSize: 28,
+      fontSize: 26,
       textAlign: 'center',
       flex: 1, // Ocupa o espaço disponível
+      fontFamily: 'ChangaOne_400Regular',
     },
     icon: {
-      fontSize: 18,
+      fontSize: 12,
       color: colors.white,
     },
     menuButton: {
