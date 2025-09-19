@@ -5,8 +5,8 @@ import React from "react";
 import Header from "../components/header";
 import Entypo from "@expo/vector-icons/Entypo";
 import colors from "../components/header/style";
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function Layout() {
   return (
@@ -22,6 +22,17 @@ export default function Layout() {
           },
         }}
       >
+        <Drawer.Screen
+          name="login/page"
+          options={{
+            title: "Login",
+            headerShown: false,
+            drawerIcon: ({ color, size }) => (
+              <AntDesign name="login" size={28} color="gray" />
+            ),
+          }}
+        />
+
         <Drawer.Screen
           name="(tabs)"
           options={{
@@ -57,6 +68,21 @@ export default function Layout() {
             drawerIcon: ({ color, size }) => (
               <Entypo name="cloud" size={28} color="gray" />
             ),
+          }}
+        />
+        <Drawer.Screen
+          name="sobrenos/index"
+          options={{
+            title: "About",
+            drawerIcon: ({ color, size }) => (
+              <AntDesign name="questioncircleo" size={28} color="gray" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="conta/page"
+          options={{
+            drawerItemStyle: { display: "none" },
           }}
         />
       </Drawer>

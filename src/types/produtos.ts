@@ -1,5 +1,5 @@
-export interface Produtos {
-  id: string;
+export interface ProdutosI {
+  id_produtos: string;
   plano: string;
   descricao: string;
   quantidade: number;

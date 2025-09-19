@@ -1,4 +1,3 @@
-import { Produtos } from '../types/produtos';
 
 const produtosApi= [
     {

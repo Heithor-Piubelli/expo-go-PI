@@ -4,7 +4,7 @@ import colors from "../header/style";
 import { router } from "expo-router";
 
 export interface Produtos {
-  id: string;
+  id_produtos: string;
   plano: string;
   descricao: string;
   quantidade: number;
@@ -13,7 +13,7 @@ export interface Produtos {
 }
 
 export const ProductItem: React.FC<Produtos> = ({
-  id,
+  id_produtos,
   plano,
   descricao,
   quantidade,
@@ -30,7 +30,7 @@ export const ProductItem: React.FC<Produtos> = ({
         onPress={() =>
           router.push({
             pathname: "/productDetail/[id]",
-            params: { id: id },
+            params: { id: id_produtos },
           })
         }
       >

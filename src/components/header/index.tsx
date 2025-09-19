@@ -33,31 +33,24 @@ export default function Header() {
     );
   }
 
-  const styles = StyleSheet.create({
-    container: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      paddingTop: 20,
-      padding: 10,
-      backgroundColor: colors.gray[800],
-      justifyContent: 'center', // Centraliza os itens horizontalmente
-      height: 80,
-    },
-    title: {
-      color: colors.white,
-      fontSize: 26,
-      textAlign: 'center',
-      flex: 1, // Ocupa o espaço disponível
-      fontFamily: 'ChangaOne_400Regular',
-    },
-    icon: {
-      fontSize: 12,
-      color: colors.white,
-    },
-    menuButton: {
-      position: 'absolute',
-      left: 10,
-      top: 50,
-      zIndex: 1,
-    },
-  })
+ const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 40,
+    paddingHorizontal: 16,
+    backgroundColor: colors.gray[800],
+    height: 100,
+    position: 'relative',
+  },
+  title: {
+    color: colors.white,
+    fontSize: 28,
+    fontFamily: 'ChangaOne_400Regular',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+    justifyContent:'center'
+  },
+});
