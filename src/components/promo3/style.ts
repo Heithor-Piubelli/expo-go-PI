@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
   },
   image: {
-    width: 340,
+    width: 295,
     height: 200,
     borderColor: "black",
     overflow: "hidden",
