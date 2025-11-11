@@ -5,7 +5,7 @@ import produtosApi from "@/src/produtosApi/produtosApi";
 import TabLayout from "../(tabs)/_layout";
 
 export default function Vps() {
-  return (
+  return (//alteracao
     <View style={styles.container}>
       <Text style={styles.title}>Produtos VPS</Text>
       <FlatList
