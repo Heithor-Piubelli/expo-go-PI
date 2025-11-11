@@ -19,9 +19,6 @@ export const ProductItem: React.FC<Produtos> = ({
   quantidade,
   preco,
   categoria,
-
-
-
 }) => {
   return (
     <View style={styles.container}>

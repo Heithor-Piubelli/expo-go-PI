@@ -8,12 +8,12 @@ export default function Web() {
     <View style={styles.container}>
       <Text style={styles.title}>Produtos VPS</Text>
       <FlatList
-        data={produtosApi.filter((item) => item.categoria === 2)} 
+        data={produtosApi.filter((item) => item.categoria === 2)}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
             <ProductItem
-              id={item.id}
+              id_produtos={item.id}
               plano={item.plano}
               descricao={item.descricao}
               quantidade={item.quantidade}
@@ -32,7 +32,7 @@ export default function Web() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1F2A44',
+    backgroundColor: "#1F2A44",
     paddingHorizontal: 16,
     paddingTop: 20,
   },

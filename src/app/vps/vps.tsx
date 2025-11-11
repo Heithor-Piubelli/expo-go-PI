@@ -14,7 +14,7 @@ export default function Vps() {
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
             <ProductItem
-              id={item.id}
+              id_produtos={item.id}
               plano={item.plano}
               descricao={item.descricao}
               quantidade={item.quantidade}

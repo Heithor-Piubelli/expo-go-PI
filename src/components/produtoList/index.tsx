@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import React from "react";
-import { useState, useEffect } from "react";
 import { ProdutosI } from "@/src/types/produtos";
 import ProductItem from "../produtoItem";
 // import produtosApi from "@/src/produtosApi/produtosApi";
@@ -9,15 +8,25 @@ export default function ProductList() {
   const [produtosApi, setProdutosApi] = React.useState<ProdutosI[]>([]);
 
   React.useEffect(() => {
-    fetch("http://10.63.48.45:8080/produtos/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => setProdutosApi(json.data))
-      .catch((error) => console.error("erro ao buscar dados", error));
+    // Função que faz a requisição à API
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://10.63.48.45:8080/produtos");
+        const json = await response.json();
+
+        // Verifica se o status é sucesso e extrai os dados
+        if (json.status === "success" && Array.isArray(json.data)) {
+          setProdutosApi(json.data);
+          console.log("API OK");
+        } else {
+          console.error("Erro na estrutura dos dados:", json);
+        }
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
