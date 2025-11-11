@@ -696,10 +696,6 @@ const styles = StyleSheet.create({
     
   },
   logoutButtonText: {
-    color: "#0a0a0a",
-    fontSize: 16,
-    fontWeight: "500",
-    marginLeft: 8,
   },
   spacer: {
     height: 20,
