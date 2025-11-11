@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import React from "react";
-import { ProdutosI } from "@/src/types/produtos";
+import { ProdutosI } from "@/src/models/types/produtos";
 import ProductItem from "../produtoItem";
 // import produtosApi from "@/src/produtosApi/produtosApi";
 
