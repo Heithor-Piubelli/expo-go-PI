@@ -16,10 +16,13 @@ import { ChangaOne_400Regular } from "@expo-google-fonts/changa-one/400Regular";
 import { ChangaOne_400Regular_Italic } from "@expo-google-fonts/changa-one/400Regular_Italic";
 import { useNavigation } from "@react-navigation/native";
 import { router } from "expo-router";
+import UserService from "@/src/models/service/UserService";
 
 const { width, height } = Dimensions.get("window");
 
 export default function LoginScreen() {
+
+   const userService = new UserService();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -36,14 +39,20 @@ export default function LoginScreen() {
     return null; // Pode substituir por uma tela de loading se quiser
   }
 
-  const handleLogin = () => {
-    if (email === "123" && password === "123") {
-      router.push("/home");
-      // navigation.navigate('Home'); // ou qualquer outra tela após o login
+  const handleLogin = async () => {
+    try{
+      const clientes = await userService.getAll(email, password);
+
+    if(clientes){
+      Alert.alert("Login com sucesso", "Email ou senha válidos.");
+     router.replace("/(tabs)/home");
     } else {
-      Alert.alert("Erro", "Email ou senha incorretos.");
+      Alert.alert("Erro de Login", "Email ou senha inválidos.");
     }
-  };
+  }catch(error){
+    console.error("Erro ao tentar logar:", error);
+    Alert.alert("Erro de Login", "Ocorreu um erro ao tentar logar.");
+  }};
 
   const handleForgotPassword = () => {
     Alert.alert(

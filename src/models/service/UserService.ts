@@ -4,15 +4,25 @@ import { User } from "../types/User";
 import { ApiService } from "./ApiService";
 
 export default class UserService extends ApiService<User> {
-  static getAll(): any {
-    throw new Error("Method not implemented.");
-  }
+  
   //Construtor
   constructor() {
     super(
-      "http://10.63.48.45:8080/cliente",
+      "http://10.63.48.45:8080/clientes",
       "da39a3ee5e6b4b0d3255bfef95601890afd80709"
     );
+  }
+
+   async getAll(email?: string, password?: string): Promise<User[]> {
+    const response = await fetch(
+      this.baseUrl + `/?email=${email}&senha=${password}`,
+      {
+        method: "GET",
+        headers: this.headers,
+      }
+    );
+    const json = await response.json();
+    return json.data;
   }
 
   //Implementação dos métodos abstratos
@@ -24,15 +34,7 @@ export default class UserService extends ApiService<User> {
     return response.json();
   }
 
-  async getAll(): Promise<User[]> {
-    const response = await fetch(this.baseUrl, {
-      method: "GET",
-      headers: this.headers,
-    });
-    const json = await response.json();
-    return json.data;
-  }
-
+  
   async create(data: User): Promise<User> {
     const response = await fetch(this.baseUrl, {
       method: "POST",
